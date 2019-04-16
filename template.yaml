@@ -7,7 +7,7 @@ Globals:
         Environment:
             Variables:
                 # Laravel environment variables
-                APP_STORAGE: '/tmp'
+                APP_STORAGE: '/tmp/laravel'
 
 Resources:
     Website:

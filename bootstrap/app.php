@@ -9,11 +9,18 @@
 | which serves as the "glue" for all the components of Laravel, and is
 | the IoC container for the system binding all of the various parts.
 |
-*/
+ */
 
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
+
+$directoryNames = ['/tmp/laravel/framework/sessions', '/tmp/laravel/framework/cache', '/tmp/laravel/framework/views'];
+foreach ($directoryNames as $directoryName) {
+    if (!is_dir($directoryName)) {
+        mkdir($directoryName, 0755, true);
+    }
+}
 
 /*
  * Allow overriding the storage path in production using an environment variable.
@@ -29,7 +36,7 @@ $app->useStoragePath($_ENV['APP_STORAGE'] ?? $app->storagePath());
 | we will be able to resolve them when needed. The kernels serve the
 | incoming requests to this application from both the web and CLI.
 |
-*/
+ */
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
@@ -55,6 +62,6 @@ $app->singleton(
 | the calling script so we can separate the building of the instances
 | from the actual running of the application and sending responses.
 |
-*/
+ */
 
 return $app;
