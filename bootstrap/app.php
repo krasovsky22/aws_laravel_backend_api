@@ -15,13 +15,6 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
-$directoryNames = ['/tmp/laravel/framework/sessions', '/tmp/laravel/framework/cache', '/tmp/laravel/framework/views'];
-foreach ($directoryNames as $directoryName) {
-    if (!is_dir($directoryName)) {
-        mkdir($directoryName, 0755, true);
-    }
-}
-
 /*
  * Allow overriding the storage path in production using an environment variable.
  */
