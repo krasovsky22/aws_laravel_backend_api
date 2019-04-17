@@ -1,5 +1,5 @@
 preview:
-	sam local start-api --region us-east-1
+	sam local start-api --region us-east-2
 
 deploy:
 	php artisan config:clear
