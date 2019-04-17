@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::resource('products', 'API\ProductController', ['middleware' => 'cors']);
+Route::resource('products', 'API\ProductController');
